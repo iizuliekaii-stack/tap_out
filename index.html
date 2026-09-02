@@ -93,6 +93,48 @@
       border-top: 1px solid #ddd;
       margin: 36px 0;
     }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      margin-top: 24px;
+      border-bottom: 2px solid #ddd;
+    }
+
+    .tab-button {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      font-weight: bold;
+      background: #f3f3f3;
+      border: 1px solid #ddd;
+      border-bottom: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      color: #555;
+      border-radius: 4px 4px 0 0;
+      position: relative;
+      top: 2px;
+    }
+
+    .tab-button:hover {
+      background: #e9e9e9;
+      color: #222;
+    }
+
+    .tab-button.active {
+      background: #ffffff;
+      color: #222;
+      border-bottom: 2px solid #ffffff;
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
   </style>
 </head>
 
@@ -197,160 +239,180 @@
         creates its own major cognitive load or performance pressure.
       </div>
 
+      <!-- Tab buttons -->
+      <div class="tabs" role="tablist">
+        <button class="tab-button active" role="tab" aria-selected="true" aria-controls="panel-5" id="tab-5" onclick="showTab('5')">5-Minute Tier</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-15" id="tab-15" onclick="showTab('15')">15-Minute Tier</button>
+        <button class="tab-button" role="tab" aria-selected="false" aria-controls="panel-30" id="tab-30" onclick="showTab('30')">30-Minute Tier</button>
+      </div>
+
       <!-- 5 Minute -->
-      <h3>5-Minute Tier — Quick Top-Off</h3>
+      <div class="tab-panel active" id="panel-5" role="tabpanel" aria-labelledby="tab-5">
 
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Example</th>
-          </tr>
-        </thead>
+        <h3>5-Minute Tier — Quick Top-Off</h3>
 
-        <tbody>
-          <tr>
-            <td><strong>Curiosity snack</strong></td>
-            <td>
-              Short video clip on a topic she likes — physics, human geography, history, or another interesting subject.
-            </td>
-          </tr>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Example</th>
+            </tr>
+          </thead>
 
-          <tr>
-            <td><strong>Language rep</strong></td>
-            <td>
-              A couple of Duolingo-style reps, conversation/ dialogue challenges, or a short foreign-language clip.
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><strong>Curiosity snack</strong></td>
+              <td>
+                Short video clip on a topic she likes — physics, geography,
+                medicine trivia, or another interesting subject.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Social ping</strong></td>
-            <td>
-              Voice note or quick text to a friend — banter, meme, or simple
-              check-in.
-            </td>
-          </tr>
+            <tr>
+              <td><strong>Language rep</strong></td>
+              <td>
+                A couple of Duolingo-style reps or a short foreign-language clip.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Micro win</strong></td>
-            <td>
-              Glance back at flashcards she already knows cold for a quick
-              reminder of, "I've got this."
-            </td>
-          </tr>
+            <tr>
+              <td><strong>Social ping</strong></td>
+              <td>
+                Voice note or quick text to a friend — banter, meme, or simple
+                check-in.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Sensory reset</strong></td>
-            <td>
-              Make tea or coffee, step outside for air, or change the room's
-              lighting or music.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <td><strong>Micro win</strong></td>
+              <td>
+                Glance back at flashcards she already knows cold for a quick
+                reminder of, "I've got this."
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Sensory reset</strong></td>
+              <td>
+                Make tea or coffee, step outside for air, or change the room's
+                lighting or music.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
 
       <!-- 15 Minute -->
-      <h3>15-Minute Tier — Moderate Refuel</h3>
+      <div class="tab-panel" id="panel-15" role="tabpanel" aria-labelledby="tab-15">
 
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Example</th>
-          </tr>
-        </thead>
+        <h3>15-Minute Tier — Moderate Refuel</h3>
 
-        <tbody>
-          <tr>
-            <td><strong>Curiosity rabbit hole</strong></td>
-            <td>
-              One Wikipedia or YouTube spiral on something unrelated to the
-              current work — a physics oddity, human geography fact, or a place
-              she wants to visit.
-            </td>
-          </tr>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Example</th>
+            </tr>
+          </thead>
 
-          <tr>
-            <td><strong>Language immersion</strong></td>
-            <td>
-              A full short video or podcast segment in Spanish, or another target
-              language, on a topic she actually enjoys.
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><strong>Curiosity rabbit hole</strong></td>
+              <td>
+                One Wikipedia or YouTube spiral on something unrelated to the
+                current work — a physics oddity, human geography fact, or a place
+                she wants to visit.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Real conversation</strong></td>
-            <td>
-              A short call or voice chat with a friend — actual back-and-forth,
-              rather than only texting.
-            </td>
-          </tr>
+            <tr>
+              <td><strong>Language immersion</strong></td>
+              <td>
+                A full short video or podcast segment in Spanish, or another target
+                language, on a topic she actually enjoys.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Light movement</strong></td>
-            <td>
-              Short walk, stretching, or a few easy climbing movements if
-              available — not a workout, just enough movement to shift state.
-            </td>
-          </tr>
+            <tr>
+              <td><strong>Real conversation</strong></td>
+              <td>
+                A short call or voice chat with a friend — actual back-and-forth,
+                rather than only texting.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Creative doodle</strong></td>
-            <td>
-              Quick sketch, playing a song, messing with a photo, or another
-              expressive activity with no stakes attached.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <td><strong>Light movement</strong></td>
+              <td>
+                Short walk, stretching, or a few easy climbing movements if
+                available — not a workout, just enough movement to shift state.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Creative doodle</strong></td>
+              <td>
+                Quick sketch, playing a song, messing with a photo, or another
+                expressive activity with no stakes attached.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
 
       <!-- 30 Minute -->
-      <h3>30-Minute Tier — Full Reset</h3>
+      <div class="tab-panel" id="panel-30" role="tabpanel" aria-labelledby="tab-30">
 
-      <p class="note">
-        Use when she's genuinely depleted, not as the default break.
-      </p>
+        <h3>30-Minute Tier — Full Reset</h3>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Example</th>
-          </tr>
-        </thead>
+        <p class="note">
+          Use when she's genuinely depleted, not as the default break.
+        </p>
 
-        <tbody>
-          <tr>
-            <td><strong>Deep curiosity dive</strong></td>
-            <td>
-              Full documentary segment or long-form video on a subject she loves.
-            </td>
-          </tr>
+        <table>
+          <thead>
+            <tr>
+              <th>Type</th>
+              <th>Example</th>
+            </tr>
+          </thead>
 
-          <tr>
-            <td><strong>Social time</strong></td>
-            <td>
-              Actual hangout or longer call with a friend.
-            </td>
-          </tr>
+          <tbody>
+            <tr>
+              <td><strong>Deep curiosity dive</strong></td>
+              <td>
+                Full documentary segment or long-form video on a subject she loves.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Movement session</strong></td>
-            <td>
-              Real climbing, a run, or a workout — combining physical recharge
-              with a mental reset.
-            </td>
-          </tr>
+            <tr>
+              <td><strong>Social time</strong></td>
+              <td>
+                Actual hangout or longer call with a friend.
+              </td>
+            </tr>
 
-          <tr>
-            <td><strong>Language + connection combo</strong></td>
-            <td>
-              Watch content in Spanish and then discuss it with someone afterward
-              — combining curiosity, language learning, and social engagement.
-            </td>
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <td><strong>Movement session</strong></td>
+              <td>
+                Real climbing, a run, or a workout — combining physical recharge
+                with a mental reset.
+              </td>
+            </tr>
+
+            <tr>
+              <td><strong>Language + connection combo</strong></td>
+              <td>
+                Watch content in Spanish and then discuss it with someone afterward
+                — combining curiosity, language learning, and social engagement.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
 
     </section>
 
@@ -397,6 +459,18 @@
     </section>
 
   </main>
+
+  <script>
+    function showTab(id) {
+      const tiers = ['5', '15', '30'];
+      tiers.forEach(function (t) {
+        document.getElementById('panel-' + t).classList.toggle('active', t === id);
+        const btn = document.getElementById('tab-' + t);
+        btn.classList.toggle('active', t === id);
+        btn.setAttribute('aria-selected', t === id ? 'true' : 'false');
+      });
+    }
+  </script>
 
 </body>
 </html>
